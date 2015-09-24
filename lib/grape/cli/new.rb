@@ -3,11 +3,13 @@ class GrapeCli < Thor
 
   desc "new PROJECT_NAME", "some desc to avoid warning"
 
+  class_option :work_dir, default: Dir.pwd
+
   def self.source_root
     File.dirname(__FILE__)
   end
 
-  def generate(folder, app_name)
-    directory('template', File.join(folder, app_name))
+  def new(app_name)
+    directory('template', File.join(options[:work_dir], app_name))
   end
 end

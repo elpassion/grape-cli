@@ -7,7 +7,7 @@ class Grape::CreateTest < Minitest::Test
     @folder = Dir.mktmpdir
     @app_name = 'Koszcz'
     @app_folder = File.join(@folder, @app_name)
-    GrapeCli.new([@folder, @app_name]).invoke(:generate)
+    GrapeCli.new([@app_name],{work_dir: @folder}).invoke(:new)
   end
 
   def teardown
