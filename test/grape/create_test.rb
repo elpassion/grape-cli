@@ -6,7 +6,7 @@ class Grape::CreateTest < Minitest::Test
     @folder = Dir.mktmpdir
     @app_name = 'Koszcz'
     @app_folder = File.join(@folder, @app_name)
-    ProjectGenerator.new(@folder, @app_name).generate
+    ProjectGenerator.new([@folder, @app_name]).invoke(:generate)
   end
 
   def teardown
@@ -22,14 +22,19 @@ class Grape::CreateTest < Minitest::Test
   end
 end
 
-class ProjectGenerator
-  def initialize(folder, app_name)
-    @folder, @app_name = folder, app_name
-    @app_folder = File.join(@folder, @app_name)    
+class ProjectGenerator < Thor
+  include Thor::Actions
+
+  class_option :app_name, default: 'my_app'
+
+  desc "new PROJECT_NAME", "some desc to avoid warning"
+
+  def self.source_root
+    File.dirname(__FILE__)
   end
 
-  def generate
-    Dir.mkdir(@app_folder)
-    FileUtils.touch(File.join(@app_folder, 'Gemfile'))
+  def generate(folder, app_name)
+    Dir.mkdir(File.join(folder, app_name))
+    FileUtils.touch(File.join(folder, app_name, 'Gemfile'))
   end
 end
