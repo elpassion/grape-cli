@@ -1,7 +1,6 @@
-require "grape/cli/version"
+require 'thor'
 
-module Grape
-  module Cli
-    # Your code goes here...
-  end
-end
+require 'bundler'
+Bundler.require
+
+require 'grape/cli/new'

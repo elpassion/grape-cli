@@ -1,4 +1,4 @@
-class Grape < Thor
+class GrapeCLI < Thor
   desc "new", "Create new grape app"
 
   def new(app_name)
