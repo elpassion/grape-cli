@@ -11,12 +11,10 @@ class GrapeCli < Thor
   end
 
   def new
-    Dir.glob(File.join(GrapeCli.source_root, 'template/**/*')) do |file|
+    Dir.glob(File.join(GrapeCli.source_root, 'template/application/**/*'), File::FNM_DOTMATCH).each do |file|
       next if File.directory?(file)
       path = file.split('/')
-      relative_path = path[path.index('application')+1..-1].join('/')
-
-      copy_file(file, File.join(options[:work_dir], app_name, relative_path))
+      copy_file(file, (File.join(options[:work_dir], app_name, path[path.index('application')+1..-1].join('/'))), force: true)
     end
   end
 end

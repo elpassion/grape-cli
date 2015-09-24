@@ -23,7 +23,7 @@ class Grape::CreateTest < Minitest::Test
   end
 
   def test_creates_an_application_folder
-    assert File.exists?(File.join(@app_folder, 'application'))
-    assert File.directory?(File.join(@app_folder, 'application'))
+    assert File.exists?(File.join(@app_folder, 'app'))
+    assert File.directory?(File.join(@app_folder, 'app'))
   end
 end
