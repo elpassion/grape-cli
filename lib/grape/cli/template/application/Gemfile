@@ -1,0 +1,16 @@
+source 'http://rubygems.org'
+
+gem 'pg'
+
+gem 'grape', '~> 0.13.0'
+
+gem 'activerecord',  '~> 4.2.1', require: 'active_record'
+gem 'grape-activerecord'
+gem 'grape-swagger', '~> 0.10.2'
+gem 'rack',          '~> 1.6.0'
+gem 'racksh'
+
+group :development, :test do
+  gem 'rake', '~> 10.4.2'
+  gem 'pry'
+end
