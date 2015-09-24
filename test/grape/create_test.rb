@@ -5,6 +5,8 @@ class Grape::CreateTest < Minitest::Test
   def setup
     @folder = Dir.mktmpdir
     @app_name = 'Koszcz'
+    @app_folder = File.join(@folder, @app_name)
+    ProjectGenerator.new(@folder, @app_name).generate
   end
 
   def teardown
@@ -12,17 +14,22 @@ class Grape::CreateTest < Minitest::Test
   end
 
   def test_creates_a_root_folder
-    ProjectGenerator.new(@folder, @app_name).generate
-    assert Dir.exists?(File.join(@folder, @app_name))
+    assert Dir.exists?(@app_folder)
+  end
+
+  def test_creates_a_gemfile
+    assert File.exists?(File.join(@app_folder, 'Gemfile'))
   end
 end
 
 class ProjectGenerator
   def initialize(folder, app_name)
     @folder, @app_name = folder, app_name
+    @app_folder = File.join(@folder, @app_name)    
   end
 
   def generate
-    Dir.mkdir(File.join(@folder, @app_name))
+    Dir.mkdir(@app_folder)
+    FileUtils.touch(File.join(@app_folder, 'Gemfile'))
   end
 end
