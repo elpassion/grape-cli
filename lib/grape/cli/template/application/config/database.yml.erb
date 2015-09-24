@@ -7,11 +7,11 @@ default: &default
 
 development:
   <<: *default
-  database: example_api_development
+  database: <%= app_name %>_api_development
 
 test:
   <<: *default
-  database: example_api_test
+  database: <%= app_name %>_api_test
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
