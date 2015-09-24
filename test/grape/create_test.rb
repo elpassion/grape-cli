@@ -26,4 +26,12 @@ class Grape::CreateTest < Minitest::Test
     assert File.exists?(File.join(@app_folder, 'app'))
     assert File.directory?(File.join(@app_folder, 'app'))
   end
+
+  def test_removes_erb_extension
+    assert File.exists?(File.join(@app_folder, 'config.ru'))
+  end
+
+  def test_templates_erb_files
+    assert File.foreach(File.join(@app_folder, 'config.ru')).grep(/#{@app_name}/).any?
+  end
 end
