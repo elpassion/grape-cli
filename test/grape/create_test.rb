@@ -21,4 +21,9 @@ class Grape::CreateTest < Minitest::Test
   def test_creates_a_gemfile
     assert File.exists?(File.join(@app_folder, 'Gemfile'))
   end
+
+  def test_creates_an_application_folder
+    assert File.exists?(File.join(@app_folder, 'application'))
+    assert File.directory?(File.join(@app_folder, 'application'))
+  end
 end
