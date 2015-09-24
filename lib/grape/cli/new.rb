@@ -1,12 +1,4 @@
-class GrapeCLI < Thor
-  desc "new", "Create new grape app"
-
-  def new(app_name)
-    puts "#{app_name}"
-  end
-end
-
-class ProjectGenerator < Thor
+class GrapeCli < Thor
   include Thor::Actions
 
   desc "new PROJECT_NAME", "some desc to avoid warning"
