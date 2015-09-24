@@ -2,7 +2,7 @@ class GrapeCli < Thor
   include Thor::Actions
 
   argument :app_name
-  desc "new PROJECT_NAME", "some desc to avoid warning"
+  desc "new", "Create a new Grape application"
 
   class_option :work_dir, default: Dir.pwd
 
@@ -11,14 +11,9 @@ class GrapeCli < Thor
   end
 
   def new
-    Dir.glob(File.join(GrapeCli.source_root, 'template/application/**/*'), File::FNM_DOTMATCH).each do |file|
-      next if File.directory?(file)
-      path = file.split('/')
-      if File.extname(file) == '.erb'
-        template(file, (File.join(options[:work_dir], app_name, path[path.index('application')+1..-1].join('/').chomp('.erb'))))
-      else
-        copy_file(file, (File.join(options[:work_dir], app_name, path[path.index('application')+1..-1].join('/'))), force: true)
-      end
-    end
+    application_template_path = File.join(GrapeCli.source_root, 'template/application')
+    destination_path          = File.join(options[:work_dir], app_name)
+
+    directory(application_template_path, destination_path)
   end
 end
