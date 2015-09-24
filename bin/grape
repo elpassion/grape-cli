@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
+$:.unshift File.dirname(__FILE__) + '/../lib'
+
 require "grape/cli"
 
 GrapeCli.start

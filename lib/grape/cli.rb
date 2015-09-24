@@ -1,6 +1,6 @@
 require 'thor'
-
-require 'bundler'
-Bundler.require
-
 require 'grape/cli/new'
+require 'grape/cli/version'
+
+module Grape
+end
