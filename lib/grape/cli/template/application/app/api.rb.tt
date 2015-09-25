@@ -1,9 +1,9 @@
-module <%= config[:app_name].split('_').collect(&:capitalize).join %>
+module <%= config[:class_name] %>
   class API < Grape::API
     prefix 'api'
     format :json
 
-    mount <%= config[:app_name].split('_').collect(&:capitalize).join %>::HelloWorld
+    mount <%= config[:class_name] %>::HelloWorld
 
     add_swagger_documentation api_version: 'v1'
   end

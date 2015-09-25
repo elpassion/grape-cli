@@ -1,4 +1,5 @@
 require 'grape/application_factory'
+require 'grape/class_name_generator'
 
 class GrapeCli < Thor
   include Thor::Actions
@@ -28,7 +29,8 @@ class GrapeCli < Thor
   def create_config(app_name)
     {
       app_name: app_name,
-      verbose: ApplicationFactory.instance.verbose_output
+      verbose: ApplicationFactory.instance.verbose_output,
+      class_name: ClassNameGenerator.new(app_name).generate
     }
   end
 end
