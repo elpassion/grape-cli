@@ -6,4 +6,8 @@ class CommandGenerator
   def run_server
     'rackup'
   end
+
+  def run_console
+    'racksh'
+  end
 end
