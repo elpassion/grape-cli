@@ -1,5 +1,4 @@
 require 'grape/application_factory'
-require 'pry'
 
 class GrapeCli < Thor
   include Thor::Actions
@@ -14,8 +13,8 @@ class GrapeCli < Thor
 
   def new(app_name)
     application_template_path = File.join(GrapeCli.source_root, 'template/application')
-    destination_path = File.join(options[:work_dir], app_name)
-    config = createConfig(app_name)
+    destination_path          = File.join(options[:work_dir], app_name)
+    config                    = create_config(app_name)
 
     directory(application_template_path, destination_path, config)
 
@@ -26,10 +25,10 @@ class GrapeCli < Thor
 
   private
 
-  def createConfig(app_name)
+  def create_config(app_name)
     {
-        app_name: app_name,
-        verbose: ApplicationFactory.instance.verbose_output
+      app_name: app_name,
+      verbose: ApplicationFactory.instance.verbose_output
     }
   end
 end
