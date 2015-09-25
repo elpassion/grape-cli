@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["wswidzinski", "michalwarda", "koszcz", "ghostbuster91"]
   spec.email         = ["swidzinskiw@gmail.com"]
 
-  spec.summary       = %q{ Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{ Write a longer description or delete this line.}
+  spec.summary       = %q{ Grape-CLI is a gem for bootstraping standalone Grape application. }
+  spec.description   = %q{ Grape-CLI is a gem for bootstraping standalone Grape application. It is heavily inspired by Rails/Ember generators. }
   spec.homepage      = "http://github.com/elpassion/grape-cli"
   spec.license       = "MIT"
 
