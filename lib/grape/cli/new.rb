@@ -15,5 +15,9 @@ class GrapeCli < Thor
     destination_path          = File.join(options[:work_dir], app_name)
 
     directory(application_template_path, destination_path)
+
+    inside destination_path do
+      run 'bundle install'
+    end
   end
 end
