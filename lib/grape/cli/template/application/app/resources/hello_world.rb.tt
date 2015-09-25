@@ -1,4 +1,4 @@
-module <%= app_name.split('_').collect(&:capitalize).join %>
+module <%= config[:app_name].split('_').collect(&:capitalize).join %>
   class HelloWorld < Grape::API
     get '/hello_world' do
       { message: 'hello world' }
