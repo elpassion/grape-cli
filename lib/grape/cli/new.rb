@@ -21,7 +21,7 @@ class GrapeCli < Thor
 
     directory(application_template_path, destination_path, config)
     template(File.join(template_path, 'database', "#{options[:database]}.yml.tt"),
-             File.join(destination_path, 'config', 'database.yml'))
+             File.join(destination_path, 'config', 'database.yml'), config)
     inside destination_path do
       run(ApplicationFactory.instance.command_generator.bundle_install, config)
     end
