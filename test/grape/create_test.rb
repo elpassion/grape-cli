@@ -31,6 +31,10 @@ class Grape::CreateTest < Minitest::Test
     assert File.exists?(File.join(@app_folder, 'app'))
     assert File.directory?(File.join(@app_folder, 'app'))
   end
+
+  def test_copy_default_database_yml
+    assert File.exists?(File.join(@app_folder, 'config', 'database.yml'))
+  end
 end
 
 

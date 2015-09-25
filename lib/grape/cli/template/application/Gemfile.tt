@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'pg'
+gem '<%= config[:database_gem] %>'
 
 gem 'grape', '~> 0.13.0'
 
