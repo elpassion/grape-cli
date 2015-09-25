@@ -2,7 +2,9 @@ require 'pry'
 require 'test_helper'
 require 'tmpdir'
 require './lib/grape/cli'
-require './lib/grape/cli/application_factory'
+require './lib/grape/application_factory'
+require './test/grape/stubs/fake_generator'
+require './test/grape/stubs/test_factory'
 
 class Grape::CreateTest < Minitest::Test
   def setup
@@ -29,15 +31,7 @@ class Grape::CreateTest < Minitest::Test
     assert File.exists?(File.join(@app_folder, 'app'))
     assert File.directory?(File.join(@app_folder, 'app'))
   end
-
 end
 
-class FakeGenerator < CommandGenerator
-  def bundle_install; ''; end
-end
 
-class TestFactory < ApplicationFactory
-  def command_generator
-    FakeGenerator.new
-  end
-end
+
