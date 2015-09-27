@@ -1,4 +1,4 @@
-# grape-cli [![Build Status](https://travis-ci.org/elpassion/grape-cli.svg?branch=master)](https://travis-ci.org/elpassion/grape-cli) [![Code Climate](https://codeclimate.com/github/elpassion/grape-cli/badges/gpa.svg)](https://codeclimate.com/github/elpassion/grape-cli)
+# grape-cli [![Build Status](https://travis-ci.org/elpassion/grape-cli.svg?branch=master)](https://travis-ci.org/elpassion/grape-cli) [![Code Climate](https://codeclimate.com/github/elpassion/grape-cli/badges/gpa.svg)](https://codeclimate.com/github/elpassion/grape-cli) [![Gem Version](https://badge.fury.io/rb/grape-cli.svg)](http://badge.fury.io/rb/grape-cli)
 
 Grape-CLI is a gem for bootstraping standalone Grape application. 
 It is heavily inspired by Rails/Ember generators.
