@@ -1,18 +1,18 @@
 require 'pry'
 require 'test_helper'
 require 'tmpdir'
-require './lib/grape/cli'
-require './lib/grape/application_factory'
-require './test/grape/stubs/fake_generator'
-require './test/grape/stubs/test_factory'
+require './lib/grape_cli/grape_cli'
+require './lib/grape_cli/application_factory'
+require './test/grape_cli/stubs/fake_generator'
+require './test/grape_cli/stubs/test_factory'
 
-class Grape::CreateTest < Minitest::Test
+class GrapeCli::CreateTest < Minitest::Test
   def setup
     @folder = Dir.mktmpdir
     @app_name = 'Koszcz'
     @app_folder = File.join(@folder, @app_name)
     ApplicationFactory.instance = TestFactory.new
-    GrapeCli.new([@app_name], {work_dir: @folder}).invoke(:new)
+    GrapeCli::Core.new([@app_name], {work_dir: @folder}).invoke(:new)
   end
 
   def teardown

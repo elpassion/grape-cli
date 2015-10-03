@@ -1,4 +1,4 @@
-require 'grape/command_generator'
+require 'grape_cli/command_generator'
 
 class ApplicationFactory
   @@instance = ApplicationFactory.new
