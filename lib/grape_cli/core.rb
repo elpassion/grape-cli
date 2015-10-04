@@ -8,16 +8,17 @@ module GrapeCli
   class Core < Thor
     include Thor::Actions
 
-    desc "new APP_NAME", "Create a new Grape application"
+    desc 'new APP_NAME', 'Create a new Grape application'
 
     method_option :work_dir, default: Dir.pwd
-    method_option :database, aliases: 'd', default: 'postgres', enum: %w(postgres sqlite)
+    method_option :database, aliases: 'd', default: 'sqlite', enum: %w(postgres sqlite)
     method_option :test,     aliases: 't', default: 'minitest', enum: %w(minitest rspec)
 
     def self.source_root
       File.dirname(__FILE__)
     end
 
+    # rubocop:disable Metrics/AbcSize
     def new(app_name)
       config           = GrapeCli::Config.new(app_name, GrapeCli::Core.source_root, options).config
       application_path = File.join(options[:work_dir], app_name)
@@ -32,16 +33,16 @@ module GrapeCli
     end
 
     desc 'server', 'Start the Grape server, alias "s"'
-    map  's' => 'server'
+    map 's' => 'server'
 
     def server
       puts 'Starting Grape server...'
 
-      run(ApplicationFactory.instance.command_generator.run_server, verbose: false)
+      run(ApplicationFactory.new.command_generator.run_server, verbose: false)
     end
 
     desc 'console', 'Start the Grape console, alias "c"'
-    map  'c' => 'console'
+    map 'c' => 'console'
 
     def console
       puts 'Starting Grape console...'

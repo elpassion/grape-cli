@@ -1,0 +1,18 @@
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - grape-cli.gemspec
+    - bin/_guard-core
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/ClassVars:
+  Enabled: false
+
+Style/FileName:
+  Exclude:
+    - bin/_guard-core
