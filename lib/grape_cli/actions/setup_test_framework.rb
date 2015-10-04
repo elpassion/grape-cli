@@ -16,6 +16,7 @@ module GrapeCli
         @config  = config
       end
 
+      # rubocop:disable Metrics/AbcSize
       def run
         source_path      = File.join(config[:source_root], 'templates', options[:test])
         destination_path = File.join(options[:work_dir], config[:app_name], test_directory_name)

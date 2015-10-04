@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-$:.unshift File.dirname(__FILE__) + '/../lib'
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
-require "grape_cli/grape_cli"
+require 'grape_cli/grape_cli'
 
 GrapeCli::Core.start(ARGV)
