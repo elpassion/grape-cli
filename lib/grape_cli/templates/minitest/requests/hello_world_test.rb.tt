@@ -1,0 +1,15 @@
+require 'test_helper'
+
+class HelloWorldTest < MiniTest::Test
+  include Rack::Test::Methods
+
+  def app
+    <%= config[:class_name] %>::API
+  end
+
+  def test_api_get_hello_world
+    get '/api/hello_world'
+    assert last_response.ok?
+    assert_equal 'hello world', JSON.parse(last_response.body)['message']
+  end
+end

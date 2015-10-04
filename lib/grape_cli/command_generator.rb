@@ -10,4 +10,8 @@ class CommandGenerator
   def run_console
     'racksh'
   end
+
+  def run_tests
+    'bundle exec rake'
+  end
 end

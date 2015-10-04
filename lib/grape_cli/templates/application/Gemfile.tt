@@ -8,7 +8,19 @@ gem 'activerecord',  '~> 4.2.1', require: 'active_record'
 gem 'grape-activerecord'
 gem 'grape-swagger', '~> 0.10.2'
 gem 'rack',          '~> 1.6.0'
-gem 'racksh'
+
+<% if config[:rspec] %>
+group :test do
+  gem 'rspec',     '~> 3.3'
+  gem 'rack-test', '~> 0.6.3'
+end
+<% else %>
+group :test do
+  gem 'minitest',  '~> 5.8.0'
+  gem 'minitest-reporters'
+  gem 'rack-test', '~> 0.6.3'
+end
+<% end %>
 
 group :development, :test do
   gem 'rake', '~> 10.4.2'

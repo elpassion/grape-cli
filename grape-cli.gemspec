@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'grape/cli/version'
+require 'grape_cli/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "grape-cli"
-  spec.version       = Grape::Cli::VERSION
+  spec.version       = GrapeCli::VERSION
   spec.authors       = ["wswidzinski", "michalwarda", "koszcz", "ghostbuster91"]
   spec.email         = ["swidzinskiw@gmail.com"]
 
