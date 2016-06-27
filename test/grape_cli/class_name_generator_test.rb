@@ -6,6 +6,7 @@ module GrapeCli
     def test_generate_proper_names
       assert ClassNameGenerator.new('hello').generate == 'Hello'
       assert ClassNameGenerator.new('hello_long_name').generate == 'HelloLongName'
+      assert ClassNameGenerator.new('hello_long-name').generate == 'HelloLongName'
     end
   end
 end

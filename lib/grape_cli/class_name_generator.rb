@@ -4,6 +4,6 @@ class ClassNameGenerator
   end
 
   def generate
-    @app_name.split('_').collect(&:capitalize).join
+    @app_name.split(/\-|\_/).collect(&:capitalize).join
   end
 end
