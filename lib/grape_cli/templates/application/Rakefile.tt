@@ -34,7 +34,11 @@ task :environment do
   require File.expand_path('../config/environment', __FILE__)
 end
 
-task db: :environment
+namespace :db do
+  task :environment do
+    require File.expand_path('../config/environment', __FILE__)
+  end
+end
 
 task routes: :environment do
   <%= config[:app_name] %>::API.routes.each do |route|
