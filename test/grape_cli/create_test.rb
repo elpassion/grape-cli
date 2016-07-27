@@ -36,5 +36,9 @@ module GrapeCli
     def test_copy_default_database_yml
       assert File.exist?(File.join(@app_folder, 'config', 'database.yml'))
     end
+
+    def test_setup_rspec_as_default
+      assert File.directory?(File.join(@app_folder, 'spec'))
+    end
   end
 end
