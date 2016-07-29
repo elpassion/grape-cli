@@ -12,7 +12,7 @@ module GrapeCli
 
     method_option :work_dir, default: Dir.pwd
     method_option :database, aliases: 'd', default: 'sqlite', enum: %w(postgres sqlite)
-    method_option :test,     aliases: 't', default: 'minitest', enum: %w(minitest rspec)
+    method_option :test,     aliases: 't', default: 'rspec', enum: %w(minitest rspec)
 
     def self.source_root
       File.dirname(__FILE__)
