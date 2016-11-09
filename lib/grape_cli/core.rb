@@ -35,10 +35,10 @@ module GrapeCli
     desc 'server', 'Start the Grape server, alias "s"'
     map 's' => 'server'
 
-    def server
+    def server(args = nil)
       puts 'Starting Grape server...'
 
-      run(ApplicationFactory.new.command_generator.run_server, verbose: false)
+      run(ApplicationFactory.new.command_generator.run_server(args), verbose: false)
     end
 
     desc 'console', 'Start the Grape console, alias "c"'
