@@ -51,6 +51,9 @@ running new command without specifying `--database` option will setup applicatio
 or
 
     $ grape s
+    
+This command support all rackup parameters.
+
 Go to http://localhost:9292/
 
 ###Start application console
