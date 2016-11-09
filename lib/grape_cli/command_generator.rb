@@ -3,8 +3,8 @@ class CommandGenerator
     'bundle install'
   end
 
-  def run_server
-    'rackup'
+  def run_server(args)
+    "rackup #{args}"
   end
 
   def run_console
